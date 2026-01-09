@@ -1,0 +1,150 @@
+
+.about {
+    height: 110vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.introduction {
+    width: 35%;
+    p {
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid #003a43; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 0 5px 0; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em; /* Adjust as needed */
+        justify-content: baseline;
+    }
+
+    p:nth-child(1) {
+        width: 35%;
+        -webkit-animation: type 1s steps(40, end);
+        animation: type 1s steps(40, end);
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+
+    p:nth-child(2) {
+        width: 60%;
+        font-size: 40px;
+        opacity: 0;
+        -webkit-animation: type2 1s steps(40, end);
+        animation: type2 1s steps(40, end);
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+
+    p:nth-child(3) {
+        width: auto;
+        /* font-size: 40px; */
+        overflow:visible;
+        opacity: 0; /* Ensure it starts hidden before the animation begins */
+        animation-name: fadeIn;
+        animation-delay: 2s;
+        animation-duration: 1s; /* How long the animation takes */
+        animation-fill-mode: forwards; /* Retains the final state (opacity: 1) */
+        animation-timing-function: ease-in; /* Speed curve of the animation */
+        border-right: none;
+        text-wrap: wrap;
+    }
+}
+
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: .15em solid #003a43;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@-webkit-keyframes type {
+  0% {
+    width: 0;
+  }
+  99.9% {
+    border-right: .15em solid #003a43;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid #003a43;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@-webkit-keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99.9% {
+    border-right: .15em solid #003a43;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.technologies {
+  width: 100%;
+
+  h1 {
+    margin-left: 5%;
+  }
+}
+
+.technologiesList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.contact {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  background-color: #000e10;
+}
+
+.contactIcons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  * {
+    margin: 20px;
+  }
+}

@@ -1,66 +1,46 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import pageStyles from '../styles/page.module.scss';
+import ProjectCard from "./_components/ProjectCard/ProjectCard";
+import projects from "./_components/Projects/projects";
+import technologies from "./_components/Technologies/technologies";
+import TechnologyCard from "./_components/TechnologyCard/TechnologyCard";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      <div>
+        <div className={pageStyles.about}>
+          <div className={pageStyles.introduction} id="about">
+            <p>Hello my Name is </p>
+            <p>Nathan Romphf</p>
+            <p>I am a new software engineer with a passion for complex problem solving</p>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className={pageStyles.projects} id="projects">
+          {Array.isArray(projects) && projects.map((project, index) =>
+            <ProjectCard project={project} flipped={index % 2 == 1} key={project.title}/>
+          )}
         </div>
-      </main>
-    </div>
+        <div className={pageStyles.technologies} id="technologies">
+          <h1>Technologies</h1>
+          <div className={pageStyles.technologiesList}>
+            {Array.isArray(technologies) && technologies.map(technology =>
+              <TechnologyCard key={technology.name} technology={technology}/>
+            )}
+          </div>
+        </div>
+        <div className={pageStyles.contact} id="contact">
+          <h1>Contact Me</h1>
+          <div>
+            <p>
+              Please feel free to reach out to me by email at nathan.romphf@gmail.com or click the icons below to explore my work and professional network
+            </p>
+          </div>
+          <div className={pageStyles.contactIcons}>
+            <FaGithub size={50} onClick={() => window.open('https://github.com/NattyCodes')}/>
+            <FaLinkedin size={50} onClick={() => window.open('https://www.linkedin.com/in/nathan-romphf-9570b9235/')}/>
+          </div>
+        </div>
+      </div>
   );
 }
