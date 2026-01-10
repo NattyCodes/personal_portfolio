@@ -9,13 +9,15 @@ import technologies from "./_components/Technologies/technologies";
 import TechnologyCard from "./_components/TechnologyCard/TechnologyCard";
 
 export default function Home() {
-  const [windowSize, setWindowSize] = useState(window.innerWidth)
+  const [windowSize, setWindowSize] = useState(0)
 
-  const updateOnResize = () => {
-    setWindowSize(window.innerWidth)
-  }
-
-  window.addEventListener('resize', updateOnResize)
+  useEffect(() => {
+    // This code only runs in the browser
+    setWindowSize(window.innerWidth);
+    const handleResize = () => setWindowSize(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
       <div>
