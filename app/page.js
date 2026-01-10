@@ -1,14 +1,25 @@
 'use client'
+import { useEffect, useState } from 'react';
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import pageStyles from '../styles/page.module.scss';
+import { Navbar } from "./_components/Navbar/navbar";
 import ProjectCard from "./_components/ProjectCard/ProjectCard";
 import projects from "./_components/Projects/projects";
 import technologies from "./_components/Technologies/technologies";
 import TechnologyCard from "./_components/TechnologyCard/TechnologyCard";
 
 export default function Home() {
+  const [windowSize, setWindowSize] = useState(window.innerWidth)
+
+  const updateOnResize = () => {
+    setWindowSize(window.innerWidth)
+  }
+
+  window.addEventListener('resize', updateOnResize)
+
   return (
       <div>
+        {windowSize > 900 && <Navbar />}
         <div className={pageStyles.about}>
           <div className={pageStyles.introduction} id="about">
             <p>Hello my Name is </p>
