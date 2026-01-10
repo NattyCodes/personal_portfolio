@@ -9,7 +9,7 @@ const projects = [
         description: "A simple website to keep up with all of the action around the NHL",
         skills: ["Next.js", "Javascript", "MUI", "APIs"],
         githubLink: "https://github.com/NattyCodes/NHLTracker",
-        websiteLink: "s"
+        websiteLink: "https://nhl-tracker-eta.vercel.app/"
     },
     {
         title: "Machiene Learning Algorithms",

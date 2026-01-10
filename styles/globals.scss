@@ -12,3 +12,15 @@ body {
     margin: 0px;
     width: 100%;
 }
+
+@media (min-width: 880px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 879px) {
+    html {
+        font-size: 8px;
+    }
+}
